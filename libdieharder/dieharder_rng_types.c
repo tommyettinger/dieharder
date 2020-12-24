@@ -161,6 +161,8 @@ ADD(gsl_rng_tangle);
 dh_num_user_rngs++;
 ADD(gsl_rng_splitmix);
 dh_num_user_rngs++;
+ADD(gsl_rng_ginger);
+dh_num_user_rngs++;
 
  /*
   * Tally up all the generators we found.

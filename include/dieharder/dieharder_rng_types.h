@@ -56,6 +56,7 @@
 
  GSL_VAR const gsl_rng_type *gsl_rng_tangle;	        /* tce Dec 2020 */
  GSL_VAR const gsl_rng_type *gsl_rng_splitmix;	        /* tce Dec 2020 */
+ GSL_VAR const gsl_rng_type *gsl_rng_ginger;	        /* tce Dec 2020 */
 
  /*
   * rng global vectors and variables for setup and tests.
