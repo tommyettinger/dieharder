@@ -18,11 +18,12 @@ static unsigned long int ginger_get (void *vstate)
 {
  ginger_state_t *state = vstate;
 // const unsigned long long s = (state->a += ~(state->b = (state->b >> 1ULL ^ (0ULL - (state->b & 1ULL) & 0xD800000000000000ULL)))) * 0xCC62FCEB9202FAADULL;
- const unsigned long long s = (state->a += 0xC6BC279692B5C323ULL ^ (state->b = (state->b >> 1ULL ^ (0ULL - (state->b & 1ULL) & 0xD800000000000000ULL)))) * 0xCB9C59B3F9F87D4DULL;//0xAF251AF3B0F025B5ULL;// + 0xC6BC279692B5C323ULL;
+ unsigned long long s = (state->a += 0xC6BC279692B5C323ULL ^ (state->b = (state->b >> 1ULL ^ (0ULL - (state->b & 1ULL) & 0xD800000000000000ULL))));//0xAF251AF3B0F025B5ULL;// + 0xC6BC279692B5C323ULL;
 // s = (s ^ s >> 31) * 0xCC62FCEB9202FAADULL; //0xC6BC279692B5C323ULL
 // unsigned long long s = (state->a = (state->a >> 1ULL ^ (0ULL - (state->a & 1ULL) & 0xD800000000000000ULL)));
 // s = (s ^ s >> 31) * (state->b += 0x50DAE50C4F0FDA4AULL);
- return (unsigned int)(s ^ s >> 31);
+ s = (s ^ s >> 31) * 0xCC62FCEB9202FAADUL;
+ return (unsigned int)(s ^ s >> 28);
 }
 
 static double ginger_get_double (void *vstate)
