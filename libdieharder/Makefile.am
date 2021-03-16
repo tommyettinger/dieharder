@@ -83,8 +83,9 @@ libdieharder_la_SOURCES = \
 	rngs_gnu_r.c \
 	rng_ginger.c \
 	rng_grog.c \
-	rng_kiss.c \
 	rng_jenkins.c \
+	rng_kiss.c \
+	rng_lxm.c \
 	rng_splitmix.c \
 	rng_superkiss.c \
 	rng_stdin_input_raw.c \
