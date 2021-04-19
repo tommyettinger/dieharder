@@ -98,7 +98,7 @@ void choose_rng()
 
 int select_rng(int gennum,char *genname,unsigned int initial_seed)
 {
-
+ Seed = initial_seed;
  int i;
 
  /*
@@ -241,7 +241,7 @@ int select_rng(int gennum,char *genname,unsigned int initial_seed)
 
  /*
   * Set the seed.  We do this here just so it is set for the timing
-  * test.  It may or may not ever be reset.
+  * test.  It is always reset after the timing test.
   */
  gsl_rng_set(rng,seed);
 
@@ -252,6 +252,20 @@ int select_rng(int gennum,char *genname,unsigned int initial_seed)
    time_rng();
  }
 
+ if(Seed == 0){
+   seed = random_seed();
+   MYDEBUG(D_SEED){
+     fprintf(stdout,"# choose_rng(): Generating random seed %lu\n",seed);
+   }
+ } else {
+   seed = Seed;
+   MYDEBUG(D_SEED){
+     fprintf(stdout,"# choose_rng(): Setting fixed seed %lu\n",seed);
+   }
+ }
+
+ gsl_rng_set(rng,seed);
+ 
  /*
   * Before we quit, we must count the number of significant bits in the
   * selected rng AND create a mask.  Note that several routines in bits
@@ -427,7 +441,7 @@ int select_XOR()
 
  /*
   * Set the seed.  We do this here just so it is set for the timing
-  * test.  It may or may not ever be reset.
+  * test.  It is always reset after the timing test.
   */
  gsl_rng_set(rng,seed);
 
@@ -437,6 +451,23 @@ int select_XOR()
  if(tflag & TRATE){
    time_rng();
  }
+
+ /*
+  * 100% necessary to get deterministic seeding.
+  */
+ if(Seed == 0){
+   seed = random_seed();
+   MYDEBUG(D_SEED){
+     fprintf(stdout,"# choose_rng(): Generating random seed %lu\n",seed);
+   }
+ } else {
+   seed = Seed;
+   MYDEBUG(D_SEED){
+     fprintf(stdout,"# choose_rng(): Setting fixed seed %lu\n",seed);
+   }
+ }
+   
+ gsl_rng_set(rng,seed);
 
  /*
   * We don't really need this anymore, I don't think.  But we'll leave it
