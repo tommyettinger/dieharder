@@ -167,6 +167,8 @@ ADD(gsl_rng_grog);
 dh_num_user_rngs++;
 ADD(gsl_rng_lxm);
 dh_num_user_rngs++;
+ADD(gsl_rng_harpo);
+dh_num_user_rngs++;
 
  /*
   * Tally up all the generators we found.
