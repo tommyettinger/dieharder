@@ -86,6 +86,7 @@ libdieharder_la_SOURCES = \
 	rng_harpo.c \
 	rng_jenkins.c \
 	rng_kiss.c \
+	rng_tsundere.c \
 	rng_lxm.c \
 	rng_splitmix.c \
 	rng_superkiss.c \

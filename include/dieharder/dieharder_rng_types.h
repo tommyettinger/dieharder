@@ -60,6 +60,7 @@
  GSL_VAR const gsl_rng_type *gsl_rng_grog;	        /* tce Mar 2021 */
  GSL_VAR const gsl_rng_type *gsl_rng_lxm;	        /* Guy Steele Jr. Mar 2021 */
  GSL_VAR const gsl_rng_type *gsl_rng_harpo;	        /* tce Apr 2021 */
+ GSL_VAR const gsl_rng_type *gsl_rng_tsundere;	        /* tce? Apr 2021 */
 
  /*
   * rng global vectors and variables for setup and tests.
