@@ -75,6 +75,7 @@ libdieharder_la_SOURCES = \
 	rng_aes.c \
 	rijndael-alg-fst.c \
 	rng_ca.c \
+	rng_chico.c \
 	rng_dev_random.c \
 	rng_dev_arandom.c \
 	rng_dev_urandom.c \
